@@ -8,9 +8,18 @@ $(document).ready(function(){
         }
         $('.container').append('<br>')
     }
-    $('.square').hover(function() {
-        $(this).css("background-color", "#fff");
-    }, function(){
-        $(this).css("animation", "fade 1s");
+    $('.square').on("animationend", function(){
+        $(this).removeClass("animated");
+        $(this).css("background", "#fff")
+    });
+
+    $('.square').on("mouseenter", function(){
+        $(this).removeClass("animated");
+        $(this).stop(true);
+        $(this).css("background", "#000")
+    });
+
+    $('.square').on("mouseleave", function(){
+        $(this).addClass("animated");
     })
 });

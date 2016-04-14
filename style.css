@@ -12,3 +12,7 @@
     from {background-color: #000;}
     to {background-color: #fff;}
 }
+
+.square.animated {
+    animation: fade 1s linear;
+}
