@@ -4,33 +4,38 @@ var gridSize = 8;
 var squareSize;
 $(document).ready(function () {
     "use strict";
-    var drawGrid = function () {
-        squareSize = Math.floor(850 / gridSize) - 2;
-        var x = 0;
-        for (x; x < gridSize * gridSize; x++) {
-            $('.container').append('<div class="square"></div>');
-        }
-        $('.square').width(squareSize).height(squareSize);
+    var clearGrid = function () {
+            $('.grid').html('');
+        },
 
-        $('.square').on("animationend", function () {
-            $(this).removeClass("animated");
-            $(this).css("background", "#fff");
-        });
+        drawGrid = function () {
+            squareSize = 850 / gridSize - 2;
+            var x = 0;
+            for (x; x < gridSize * gridSize; x++) {
+                $('.grid').append('<div class="square"></div>');
+            }
+            $('.square').width(squareSize).height(squareSize);
 
-        $('.square').on("mouseenter", function () {
-            $(this).removeClass("animated");
-            $(this).stop(true);
-            $(this).css("background", "#000");
-        });
+            $('.square').on("animationend", function () {
+                $(this).removeClass("animated");
+                $(this).css("background", "#fff");
+            });
 
-        $('.square').on("mouseleave", function () {
-            $(this).addClass("animated");
-        });
-    };
+            $('.square').on("mouseenter", function () {
+                $(this).removeClass("animated");
+                $(this).stop(true);
+                $(this).css("background", "#000");
+            });
+
+            $('.square').on("mouseleave", function () {
+                $(this).addClass("animated");
+            });
+        };
     drawGrid();
 
     $('#resize').on('click', function () {
         gridSize = prompt('Enter new grid count.');
+        clearGrid();
         drawGrid();
     });
 });

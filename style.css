@@ -1,12 +1,12 @@
 body {
     font-family: sans-serif;
     width: 100vw;
+    text-align: center;
 }
 
-.container {
+.grid {
     margin: 0 auto;
     width: 850px;
-    text-align: center;
 }
 
 a {
@@ -22,11 +22,13 @@ a:hover {
     background: #ccc;
 }
 
-.square{
+.square {
+    box-sizing: border-box;
     display: block;
     border: solid 1px #000;
     float: left;
     margin: 0;
+    
 }
 
 @keyframes fade {
